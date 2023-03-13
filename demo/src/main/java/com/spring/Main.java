@@ -14,7 +14,8 @@ public class Main {
     }
 
     @GetMapping("/")
-    public String greet(){
-        return "Working";
+    public GreetResponse greet(){
+        return new GreetResponse("this is a json object");
     }
+    record GreetResponse(String greet){}
 }
