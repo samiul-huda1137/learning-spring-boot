@@ -1,8 +1,21 @@
 package com.spring;
 
+import jakarta.persistence.*;
+
 import java.util.Objects;
 
+@Entity
 public class Customer {
+
+    @Id
+    @SequenceGenerator(
+            name = "customer_id_sequence",
+            sequenceName = "customer_id_sequence"
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "customer_id_sequence"
+    )
     private Integer id;
     private Integer age;
     private String name;
@@ -10,9 +23,9 @@ public class Customer {
 
     public Customer(Integer id, Integer age, String name, String email) {
         this.id = id;
-        this.age = age;
         this.name = name;
         this.email = email;
+        this.age = age;
     }
 
     public Customer(){
