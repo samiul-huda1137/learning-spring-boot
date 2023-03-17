@@ -18,9 +18,9 @@ public class Customer {
             generator = "customer_id_sequence"
     )
     private Integer id;
-    private Integer age;
     private String name;
     private String email;
+    private Integer age;
 
     public Customer(Integer id, Integer age, String name, String email) {
         this.id = id;
@@ -40,14 +40,6 @@ public class Customer {
         this.id = id;
     }
 
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
     public String getName() {
         return name;
     }
@@ -63,6 +55,13 @@ public class Customer {
     public void setEmail(String email) {
         this.email = email;
     }
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -74,16 +73,16 @@ public class Customer {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, age, name, email);
+        return Objects.hash(id, name, email, age);
     }
 
     @Override
     public String toString() {
         return "Customer{" +
                 "id=" + id +
-                ", age=" + age +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
+                ", age=" + age +
                 '}';
     }
 }
